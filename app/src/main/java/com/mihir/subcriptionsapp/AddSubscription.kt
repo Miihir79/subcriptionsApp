@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.data.Subscription
 import com.mihir.subcriptionsapp.databinding.ActivityAddSubscriptionBinding
+import kotlinx.coroutines.NonCancellable.cancel
 
 class AddSubscription : AppCompatActivity() {
 
@@ -80,8 +81,10 @@ class AddSubscription : AppCompatActivity() {
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         val intent = Intent(this,AlarmReciever::class.java)
 
-        pendingIntent = PendingIntent.getBroadcast(this,11,intent,0) // request code has to be same to get it deleted
+        pendingIntent = PendingIntent.getBroadcast(this,11,intent,0)
+        // request code has to be same to get it deleted
 
         alarmManager.cancel(pendingIntent)
+
     }
 }

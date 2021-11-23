@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_subscriptions.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,AddSubscription::class.java)
             startActivity(intent)
         }
+
+//        binding.rvSubs.edit.setOnClickListener{
+//            val intent2 = Intent(this, EditActivity::class.java)
+//            startActivity(intent2)
+//        }
         mSubsViewModel.readAllData.observe(this,{Subs->
             binding.rvSubs.layoutManager = LinearLayoutManager(this)
             binding.rvSubs.adapter = Recycler_subs_adapter(Subs)

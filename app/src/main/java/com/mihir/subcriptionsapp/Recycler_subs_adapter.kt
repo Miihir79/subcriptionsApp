@@ -3,19 +3,22 @@ package com.mihir.subcriptionsapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.data.Subscription
 import kotlinx.android.synthetic.main.item_subscriptions.view.*
 
-class Recycler_subs_adapter(private var subs:List<Subscription>):RecyclerView.Adapter<Recycler_subs_adapter.ViewHolder>() {
+class Recycler_subs_adapter(private var subs:List<Subscription>,private var ViewModel : SubsViewModel):RecyclerView.Adapter<Recycler_subs_adapter.ViewHolder>() {
 
     inner class ViewHolder(item: View):RecyclerView.ViewHolder(item){
         val name : TextView = item.txt_subName
         val desc : TextView = item.txt_subDesc
         val amt : TextView = item.txt_subAmt
         val day : TextView = item.txt_subDays
+        val delete : ImageButton = item.imageButton
 
     }
     override fun onCreateViewHolder(
@@ -32,6 +35,10 @@ class Recycler_subs_adapter(private var subs:List<Subscription>):RecyclerView.Ad
         holder.desc.text =subs[position].Description
         holder.amt.text =subs[position].Amount
         holder.day.text =subs[position].Interval
+
+        holder.delete.setOnClickListener {
+            ViewModel.deleteSubs(subs[position])
+        }
     }
 
     override fun getItemCount(): Int {

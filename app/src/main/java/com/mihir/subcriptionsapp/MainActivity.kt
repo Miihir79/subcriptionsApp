@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        }
         mSubsViewModel.readAllData.observe(this,{Subs->
             binding.rvSubs.layoutManager = LinearLayoutManager(this)
-            binding.rvSubs.adapter = Recycler_subs_adapter(Subs)
+            binding.rvSubs.adapter = Recycler_subs_adapter(Subs,mSubsViewModel)
 
 
         })

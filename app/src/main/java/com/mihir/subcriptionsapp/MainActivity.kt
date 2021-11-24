@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
 
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mSubsViewModel: SubsViewModel
 

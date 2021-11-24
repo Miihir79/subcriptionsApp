@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.data.Subscription
@@ -19,6 +20,7 @@ class Recycler_subs_adapter(
     private var ViewModel: SubsViewModel,
     val mctx: Context
 ):RecyclerView.Adapter<Recycler_subs_adapter.ViewHolder>() {
+
 
     inner class ViewHolder(item: View):RecyclerView.ViewHolder(item){
         val name : TextView = item.txt_subName
@@ -46,7 +48,12 @@ class Recycler_subs_adapter(
 
         holder.edit.setOnClickListener {
             val intent = Intent(mctx, EditActivity::class.java)
+            intent.putExtra("name", holder.name.text)
+            intent.putExtra("amt", holder.amt.text)
+            intent.putExtra("day", holder.day.text)
+            intent.putExtra("desc", holder.desc.text)
                 mctx.startActivity(intent)
+
         }
 
         holder.delete.setOnClickListener {

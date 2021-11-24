@@ -46,6 +46,9 @@ class Recycler_subs_adapter(
         holder.amt.text =subs[position].Amount
         holder.day.text =subs[position].Interval
 
+//        ViewModel.updateSubs(subs[position])
+
+
         holder.edit.setOnClickListener {
             val intent = Intent(mctx, EditActivity::class.java)
             intent.putExtra("name", holder.name.text)

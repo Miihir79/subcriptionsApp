@@ -88,5 +88,6 @@ class AddSubscription : AppCompatActivity() {
 
         alarmManager.cancel(pendingIntent)
 
+
     }
 }

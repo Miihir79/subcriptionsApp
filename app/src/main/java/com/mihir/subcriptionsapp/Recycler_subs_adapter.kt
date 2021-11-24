@@ -53,7 +53,6 @@ class Recycler_subs_adapter(
             intent.putExtra("day", holder.day.text)
             intent.putExtra("desc", holder.desc.text)
                 mctx.startActivity(intent)
-
         }
 
         holder.delete.setOnClickListener {
@@ -76,6 +75,7 @@ class Recycler_subs_adapter(
 
         }
     }
+
 
     override fun getItemCount(): Int {
         return subs.size

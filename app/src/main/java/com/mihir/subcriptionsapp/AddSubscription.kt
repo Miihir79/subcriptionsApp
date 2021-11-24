@@ -36,6 +36,8 @@ class AddSubscription : AppCompatActivity() {
         binding.txtFinish.setOnClickListener {
             setReminder()
             Toast.makeText(this,"set",Toast.LENGTH_LONG).show()
+            val myIntent = Intent(this, MainActivity::class.java)
+            startActivity(myIntent)
         }
 
         binding.txtDelete.setOnClickListener{

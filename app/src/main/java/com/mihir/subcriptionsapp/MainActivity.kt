@@ -25,10 +25,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        binding.rvSubs.edit.setOnClickListener{
-//            val intent2 = Intent(this, EditActivity::class.java)
-//            startActivity(intent2)
-//        }
         mSubsViewModel.readAllData.observe(this,{Subs->
             binding.rvSubs.layoutManager = LinearLayoutManager(this)
             binding.rvSubs.adapter = Recycler_subs_adapter(Subs, mSubsViewModel, this)

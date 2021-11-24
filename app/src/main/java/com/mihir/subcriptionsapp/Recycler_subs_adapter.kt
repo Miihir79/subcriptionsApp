@@ -2,11 +2,13 @@ package com.mihir.subcriptionsapp
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.data.Subscription
@@ -24,6 +26,7 @@ class Recycler_subs_adapter(
         val amt : TextView = item.txt_subAmt
         val day : TextView = item.txt_subDays
         val delete : ImageButton = item.imageButton
+        val edit : ImageButton = item.edit
 
     }
     override fun onCreateViewHolder(
@@ -40,6 +43,11 @@ class Recycler_subs_adapter(
         holder.desc.text =subs[position].Description
         holder.amt.text =subs[position].Amount
         holder.day.text =subs[position].Interval
+
+        holder.edit.setOnClickListener {
+            val intent = Intent(mctx, EditActivity::class.java)
+                mctx.startActivity(intent)
+        }
 
         holder.delete.setOnClickListener {
 

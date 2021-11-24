@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         mSubsViewModel = ViewModelProvider(this).get(SubsViewModel::class.java)
 
+
         binding.FabAddSub.setOnClickListener{
             val intent = Intent(this,AddSubscription::class.java)
             startActivity(intent)

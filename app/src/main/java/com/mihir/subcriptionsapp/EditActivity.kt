@@ -26,7 +26,15 @@ public class EditActivity : AppCompatActivity() {
         binding.updateDate.setText(intent.getStringExtra("day"))
 
         binding.updateBtn.setOnClickListener(){
+//            val name = binding.updateSubscriptionNameEt.text.toString()
+//            val amt = binding.updateAmt.text.toString()
+//            val desc = binding.updateDescription.text.toString()
+//            val day = binding.updateDate.text.toString()
             val myIntent = Intent(this, MainActivity::class.java)
+//            myIntent.putExtra("name", name)
+//            myIntent.putExtra("amt", amt)
+//            myIntent.putExtra("desc", desc)
+//            myIntent.putExtra("day", day)
             startActivity(myIntent)
         }
     }

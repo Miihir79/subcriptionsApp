@@ -30,6 +30,7 @@ class Recycler_subs_adapter(
         val delete : ImageButton = item.imageButton
         val edit : ImageButton = item.edit
 
+
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -37,6 +38,7 @@ class Recycler_subs_adapter(
     ): Recycler_subs_adapter.ViewHolder {
         val v= LayoutInflater.from(parent.context).inflate(R.layout.item_subscriptions,parent,false)
         return ViewHolder(v)
+
     }
 
     override fun onBindViewHolder(holder: Recycler_subs_adapter.ViewHolder, position: Int) {
@@ -56,6 +58,7 @@ class Recycler_subs_adapter(
             intent.putExtra("day", holder.day.text)
             intent.putExtra("desc", holder.desc.text)
                 mctx.startActivity(intent)
+            ViewModel.updateSubs(subs[position])
         }
 
         holder.delete.setOnClickListener {

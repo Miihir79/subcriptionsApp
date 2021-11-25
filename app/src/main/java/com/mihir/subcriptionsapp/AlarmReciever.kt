@@ -35,5 +35,11 @@ class AlarmReciever: BroadcastReceiver() { // also, we have to add it to the man
         val notificationManager = NotificationManagerCompat.from(p0)
         notificationManager.notify(124,builder.build())
 
+        val id = p1.getIntExtra("notification_id", -1)
+        if(id!=-1){
+            if(id==100)
+                notificationManager.cancel(id)
+        }
+
     }
 }

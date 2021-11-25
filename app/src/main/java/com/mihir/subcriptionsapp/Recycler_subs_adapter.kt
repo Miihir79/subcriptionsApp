@@ -56,7 +56,7 @@ class Recycler_subs_adapter(
             intent.putExtra("day", holder.day.text)
             intent.putExtra("desc", holder.desc.text)
             intent.putExtra("id", subs[position].Id)
-                mctx.startActivity(intent)
+            mctx.startActivity(intent)
             ViewModel.updateSubs(subs[position])
         }
 

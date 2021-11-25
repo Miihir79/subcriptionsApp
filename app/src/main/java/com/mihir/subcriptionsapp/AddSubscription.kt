@@ -1,9 +1,6 @@
 package com.mihir.subcriptionsapp
 
-import android.app.AlarmManager
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -36,8 +33,6 @@ class AddSubscription : AppCompatActivity() {
         binding.txtFinish.setOnClickListener {
             setReminder()
             Toast.makeText(this,"set",Toast.LENGTH_LONG).show()
-            val myIntent = Intent(this, MainActivity::class.java)
-            startActivity(myIntent)
         }
 
         binding.txtDelete.setOnClickListener{
@@ -82,12 +77,13 @@ class AddSubscription : AppCompatActivity() {
     fun deleteReminder(){
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         val intent = Intent(this,AlarmReciever::class.java)
+        intent.putExtra("notification_id", 100);
 
         pendingIntent = PendingIntent.getBroadcast(this,11,intent,0)
         // request code has to be same to get it deleted
 
         alarmManager.cancel(pendingIntent)
 
-
+        finish()
     }
 }

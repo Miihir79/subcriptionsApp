@@ -57,7 +57,7 @@ class Recycler_subs_adapter(
             intent.putExtra("desc", holder.desc.text)
             intent.putExtra("id", subs[position].Id)
             mctx.startActivity(intent)
-            ViewModel.updateSubs(subs[position])
+            ViewModel.updateSubs(subs[position], 11)
         }
 
         holder.delete.setOnClickListener {
@@ -68,7 +68,8 @@ class Recycler_subs_adapter(
             builder.setIcon(android.R.drawable.ic_dialog_alert)
 
 
-            builder.setPositiveButton("Delete"){dialogInterface, which -> ViewModel.deleteSubs(subs[position])
+            builder.setPositiveButton("Delete"){dialogInterface, which ->
+                ViewModel.deleteSubs(subs[position], 11)
             }
             builder.setNeutralButton("Cancel"){dialogInterface , which ->
             }

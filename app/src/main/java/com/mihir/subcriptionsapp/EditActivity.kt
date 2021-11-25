@@ -32,7 +32,7 @@ public class EditActivity : AppCompatActivity() {
             val amt = binding.updateAmt.text.toString()
             val desc = binding.updateDescription.text.toString()
             val day = binding.updateDate.text.toString()
-            mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day))
+            mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day), 11)
             finish()
         }
     }

@@ -36,7 +36,7 @@ class AddSubscription : AppCompatActivity() {
         }
 
         binding.txtDelete.setOnClickListener{
-            deleteReminder()
+            deleteReminder(11)
             Toast.makeText(this,"deleted",Toast.LENGTH_LONG).show()
         }
     }
@@ -67,19 +67,19 @@ class AddSubscription : AppCompatActivity() {
         intent.putExtra("date",date)
         intent.putExtra("amt",amt)
 
-        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date))
+        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date), 11)
 
         pendingIntent = PendingIntent.getBroadcast(this,11,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000,pendingIntent)
     }
 
-    fun deleteReminder(){
+    fun deleteReminder(requestCode: Int){
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         val intent = Intent(this,AlarmReciever::class.java)
         intent.putExtra("notification_id", 100);
 
-        pendingIntent = PendingIntent.getBroadcast(this,11,intent,0)
+        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent,0)
         // request code has to be same to get it deleted
 
         alarmManager.cancel(pendingIntent)

@@ -20,20 +20,20 @@ public class SubsViewModel(application: Application):AndroidViewModel(applicatio
 
     }
 
-    fun addSubs(subs: Subscription, requestCode: Int){
+    fun addSubs(subs: Subscription){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addSubs(subs)
         }
 
     }
 
-    fun updateSubs(subs: Subscription, requestCode: Int){
+    fun updateSubs(subs: Subscription){
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateSub(subs)
         }
     }
 
-    fun deleteSubs(subs: Subscription, requestCode: Int){
+    fun deleteSubs(subs: Subscription){
         viewModelScope.launch (Dispatchers.IO){
             repository.deleteSub(subs)
         }

@@ -66,8 +66,9 @@ class AddSubscription : AppCompatActivity() {
         intent.putExtra("name",name)
         intent.putExtra("date",date)
         intent.putExtra("amt",amt)
+        intent.putExtra("requestCode",11)
 
-        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date), 11)
+        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date))
 
         pendingIntent = PendingIntent.getBroadcast(this,11,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 

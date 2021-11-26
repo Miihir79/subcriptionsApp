@@ -10,5 +10,7 @@ data class Subscription(
     var Name: String,
     var Description: String,
     var Amount: String,
-    var Interval: String
+    var Interval: String,
+//    var requestCode:Int
+
 )

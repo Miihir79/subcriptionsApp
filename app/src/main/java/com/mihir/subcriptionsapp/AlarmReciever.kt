@@ -17,7 +17,8 @@ class AlarmReciever: BroadcastReceiver() { // also, we have to add it to the man
         val name = p1.getStringExtra("name")
         val date = p1.getStringExtra("date")
         val amount = p1.getStringExtra("amt")
-        val pendingIntent = PendingIntent.getActivity(p0,11,i,PendingIntent.FLAG_UPDATE_CURRENT)
+        val requestCode = p1.getIntExtra("requestCode", -1)
+        val pendingIntent = PendingIntent.getActivity(p0,requestCode,i,PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(p0,"subscriptionsApp")
             .setSmallIcon(R.drawable.ic_launcher_background)

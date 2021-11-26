@@ -1,5 +1,7 @@
 package com.mihir.subcriptionsapp;
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -32,8 +34,9 @@ public class EditActivity : AppCompatActivity() {
             val amt = binding.updateAmt.text.toString()
             val desc = binding.updateDescription.text.toString()
             val day = binding.updateDate.text.toString()
-            mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day), 11)
+            mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day))
             finish()
         }
     }
+
 }

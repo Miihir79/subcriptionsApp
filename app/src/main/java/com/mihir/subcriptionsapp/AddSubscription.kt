@@ -26,7 +26,6 @@ class AddSubscription : AppCompatActivity() {
         supportActionBar?.hide()
 
         createNotificationChannel()
-        deleteReminder(11)
 
         mSubsViewModel =ViewModelProvider(this).get(SubsViewModel::class.java)
 

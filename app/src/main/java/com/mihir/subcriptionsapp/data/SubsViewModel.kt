@@ -1,7 +1,6 @@
 package com.mihir.subcriptionsapp.data
 
 import android.app.Application
-import android.support.v4.media.session.PlaybackStateCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope

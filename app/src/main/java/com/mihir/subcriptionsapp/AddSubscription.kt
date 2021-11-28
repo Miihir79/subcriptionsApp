@@ -26,7 +26,7 @@ class AddSubscription : AppCompatActivity() {
         supportActionBar?.hide()
 
         createNotificationChannel()
-        //deleteReminder()
+        deleteReminder(11)
 
         mSubsViewModel =ViewModelProvider(this).get(SubsViewModel::class.java)
 
@@ -68,7 +68,7 @@ class AddSubscription : AppCompatActivity() {
         intent.putExtra("amt",amt)
         intent.putExtra("requestCode",11)
 
-        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date))
+        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date,11))
 
         pendingIntent = PendingIntent.getBroadcast(this,11,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 

@@ -71,4 +71,19 @@
         android:text="Update"
         tools:layout_editor_absoluteX="63dp"
         tools:layout_editor_absoluteY="328dp" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Delete"
+        android:backgroundTint="@android:color/white"
+        app:strokeColor="@color/purple_200"
+        app:strokeWidth="4dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateDate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

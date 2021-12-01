@@ -36,11 +36,6 @@ class AddSubscription : AppCompatActivity() {
             Toast.makeText(this,"set",Toast.LENGTH_LONG).show()
             finish()
         }
-
-        binding.txtDelete.setOnClickListener{
-            deleteReminder(11)
-            Toast.makeText(this,"deleted",Toast.LENGTH_LONG).show()
-        }
     }
 
     fun createNotificationChannel(){
@@ -76,19 +71,6 @@ class AddSubscription : AppCompatActivity() {
         pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000,pendingIntent)
-    }
-
-    fun deleteReminder(requestCode: Int){
-        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-        val intent = Intent(this,AlarmReciever::class.java)
-        intent.putExtra("notification_id", 100);
-
-        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent,0)
-        // request code has to be same to get it deleted
-
-        alarmManager.cancel(pendingIntent)
-
-        finish()
     }
 
     fun generateRequestCode() : Int{

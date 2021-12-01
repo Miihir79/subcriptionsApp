@@ -52,7 +52,6 @@ class Recycler_subs_adapter(
         holder.desc.text =subs[position].Description
         holder.amt.text =subs[position].Amount
         holder.day.text =subs[position].Interval
-        val requestCode =subs[position].RequestCode
 
 
         holder.edit.setOnClickListener {
@@ -76,6 +75,7 @@ class Recycler_subs_adapter(
 
             builder.setPositiveButton("Delete"){dialogInterface, which ->
                 ViewModel.deleteSubs(subs[position])
+                val requestCode =subs[position].RequestCode
                 deleteReminder(requestCode)
             }
             builder.setNeutralButton("Cancel"){dialogInterface , which ->
@@ -93,7 +93,7 @@ class Recycler_subs_adapter(
         alarmManager = mctx.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(mctx,AlarmReciever::class.java)
         intent.putExtra("notification_id", 100);
-
+        intent.putExtra("requestCode", requestCode)
         pendingIntent = PendingIntent.getBroadcast(mctx,requestCode,intent,0)
         // request code has to be same to get it deleted
 

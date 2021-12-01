@@ -11,6 +11,8 @@ import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.data.Subscription
 import com.mihir.subcriptionsapp.databinding.ActivityAddSubscriptionBinding
 import kotlinx.coroutines.NonCancellable.cancel
+import java.lang.Math.abs
+import java.util.*
 
 class AddSubscription : AppCompatActivity() {
 
@@ -32,6 +34,7 @@ class AddSubscription : AppCompatActivity() {
         binding.txtFinish.setOnClickListener {
             setReminder()
             Toast.makeText(this,"set",Toast.LENGTH_LONG).show()
+            finish()
         }
 
         binding.txtDelete.setOnClickListener{
@@ -62,14 +65,15 @@ class AddSubscription : AppCompatActivity() {
         val date = binding.editTextDate.text.toString()
         val amt = binding.edTxtAmount.text.toString()
         val desc = binding.edTxtSubDesc.text.toString()
+        val requestCode:Int = generateRequestCode()
         intent.putExtra("name",name)
         intent.putExtra("date",date)
         intent.putExtra("amt",amt)
-        intent.putExtra("requestCode",11)
+        intent.putExtra("requestCode",requestCode)
 
-        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date,11))
+        mSubsViewModel.addSubs(Subscription(0,name,desc,amt,date,requestCode))
 
-        pendingIntent = PendingIntent.getBroadcast(this,11,intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000,pendingIntent)
     }
@@ -85,5 +89,9 @@ class AddSubscription : AppCompatActivity() {
         alarmManager.cancel(pendingIntent)
 
         finish()
+    }
+
+    fun generateRequestCode() : Int{
+            return abs(Random().nextInt())
     }
 }

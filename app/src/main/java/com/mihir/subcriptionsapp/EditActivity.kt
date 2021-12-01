@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.mihir.subcriptionsapp.data.SubsViewModel
 import com.mihir.subcriptionsapp.data.Subscription
 import com.mihir.subcriptionsapp.databinding.EditActivityBinding
+import java.util.*
 
 public class EditActivity : AppCompatActivity() {
 
@@ -34,9 +35,11 @@ public class EditActivity : AppCompatActivity() {
             val amt = binding.updateAmt.text.toString()
             val desc = binding.updateDescription.text.toString()
             val day = binding.updateDate.text.toString()
-            mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day,11))
+            mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day, generateRequestCode()))
             finish()
         }
     }
-
+    fun generateRequestCode() : Int{
+        return Math.abs(Random().nextInt())
+    }
 }

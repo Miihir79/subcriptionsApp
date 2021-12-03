@@ -52,7 +52,6 @@ public class EditActivity : AppCompatActivity() {
             override fun onClick(view: View) {
                 DatePickerDialog(this@EditActivity,
                     dateSetListener,
-                    // set DatePickerDialog to point to today's date when it loads up
                     cal.get(Calendar.YEAR),
                     cal.get(Calendar.MONTH),
                     cal.get(Calendar.DAY_OF_MONTH)).show()
@@ -76,6 +75,7 @@ public class EditActivity : AppCompatActivity() {
             val desc = binding.updateDescription.text.toString()
             val day = binding.dateText.text.toString()
             mSubsViewModel.updateSubs(Subscription(id,name,desc,amt,day, requestCode))
+            updateReminder(requestCode, name, amt, day)
             finish()
         }
         binding.delete.setOnClickListener(){
@@ -113,6 +113,19 @@ public class EditActivity : AppCompatActivity() {
         alarmManager.cancel(pendingIntent)
 
         finish()
+    }
+
+    private fun updateReminder(requestCode: Int, name: String, amt: String, day: String){
+        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this,AlarmReciever::class.java)
+        intent.putExtra("notification_id", 111)
+        intent.putExtra("name", name)
+        intent.putExtra("amt", amt)
+        intent.putExtra("day", day)
+
+        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_CANCEL_CURRENT)
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000,pendingIntent)
     }
 
     private fun updateDateInView() {

@@ -14,9 +14,9 @@ class AlarmReciever: BroadcastReceiver() { // also, we have to add it to the man
         val mPrefs: SharedPreferences = p0!!.getSharedPreferences("appsettings", 0)
         val i = Intent(p0,MainActivity::class.java)
         p1!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        val name = p1.getStringExtra("name")
-        val date = p1.getStringExtra("date")
-        val amount = p1.getStringExtra("amt")
+        var name = p1.getStringExtra("name")
+        var date = p1.getStringExtra("date")
+        var amount = p1.getStringExtra("amt")
         val requestCode = p1.getIntExtra("requestCode", -1)
         val pendingIntent = PendingIntent.getActivity(p0,requestCode,i,PendingIntent.FLAG_UPDATE_CURRENT)
 
@@ -36,10 +36,19 @@ class AlarmReciever: BroadcastReceiver() { // also, we have to add it to the man
         val notificationManager = NotificationManagerCompat.from(p0)
         notificationManager.notify(124,builder.build())
 
-        val id = p1.getIntExtra("notification_id", -1)
-        if(id!=-1){
-            if(id==100)
-                notificationManager.cancel(id)
+        val id_delete = p1.getIntExtra("notification_id", -1)
+        if(id_delete!=-1){
+            if(id_delete==100)
+                notificationManager.cancel(id_delete)
+        }
+
+        val id_update = p1.getIntExtra("notification_id", -1)
+        if(id_update!=-1){
+            if(id_update==111)
+                name = p1.getStringExtra("name")
+                amount = p1.getStringExtra("amt")
+                date = p1.getStringExtra("day")
+                builder.setContentText("Pay your $name bill of $amount due on $date")
         }
 
     }

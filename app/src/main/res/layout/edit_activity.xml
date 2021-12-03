@@ -47,17 +47,27 @@
         tools:layout_editor_absoluteX="65dp"
         tools:layout_editor_absoluteY="173dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/date_text"
+        app:layout_constraintEnd_toStartOf="@+id/date_text"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/date_text" />
 
     <TextView
         android:id="@+id/date_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:text="--/--/----"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/update_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.678"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateAmt"
         app:layout_constraintVertical_bias="0.0" />

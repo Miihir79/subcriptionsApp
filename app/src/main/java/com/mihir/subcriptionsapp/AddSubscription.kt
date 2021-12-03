@@ -22,7 +22,6 @@ import java.util.*
 
 class AddSubscription : AppCompatActivity() {
     var button_date: Button? = null
-    var textview_date: TextView? = null
     var cal = Calendar.getInstance()
 
     private lateinit var binding: ActivityAddSubscriptionBinding
@@ -40,7 +39,6 @@ class AddSubscription : AppCompatActivity() {
 
         mSubsViewModel =ViewModelProvider(this).get(SubsViewModel::class.java)
 
-        textview_date = this.text_view_date_1
         button_date = this.button_date_1
 
         // create an OnDateSetListener
@@ -93,7 +91,7 @@ class AddSubscription : AppCompatActivity() {
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         val intent = Intent(this,AlarmReciever::class.java)
         val name = binding.edTxtSubName.text.toString()
-        val date = textview_date?.text.toString()
+        val date = binding.textViewDate1.text.toString()
         val amt = binding.edTxtAmount.text.toString()
         val desc = binding.edTxtSubDesc.text.toString()
         val requestCode:Int = generateRequestCode()
@@ -112,7 +110,8 @@ class AddSubscription : AppCompatActivity() {
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-        textview_date!!.text = sdf.format(cal.getTime())
+        val date: String = sdf.format(cal.getTime()).toString()
+        binding.textViewDate1!!.text = date
     }
 
     fun generateRequestCode() : Int{

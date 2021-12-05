@@ -27,16 +27,15 @@ public class EditActivity : AppCompatActivity() {
     private lateinit var mSubsViewModel: SubsViewModel
     private lateinit var alarmManager:AlarmManager
     private lateinit var pendingIntent:PendingIntent
-    var textview_date: TextView? = null
     var cal = Calendar.getInstance()
+    private lateinit var binding: EditActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = EditActivityBinding.inflate(layoutInflater)
+       binding = EditActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        textview_date = this.date_text
 
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
@@ -48,7 +47,7 @@ public class EditActivity : AppCompatActivity() {
             }
         }
 
-        textview_date!!.setOnClickListener(object : View.OnClickListener {
+        binding.dateText.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 DatePickerDialog(this@EditActivity,
                     dateSetListener,
@@ -70,6 +69,7 @@ public class EditActivity : AppCompatActivity() {
 
 
         binding.updateBtn.setOnClickListener{
+            updateDateInView()
             val name = binding.updateSubscriptionNameEt.text.toString()
             val amt = binding.updateAmt.text.toString()
             val desc = binding.updateDescription.text.toString()
@@ -123,7 +123,7 @@ public class EditActivity : AppCompatActivity() {
         intent.putExtra("amt", amt)
         intent.putExtra("day", day)
 
-        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_CANCEL_CURRENT)
+        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000,pendingIntent)
     }
@@ -131,7 +131,7 @@ public class EditActivity : AppCompatActivity() {
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
-        textview_date!!.text = sdf.format(cal.getTime())
+        binding.dateText.setText(sdf.format(cal.getTime()))
     }
 
 }

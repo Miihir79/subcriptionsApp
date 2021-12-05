@@ -45,9 +45,6 @@ class AlarmReciever: BroadcastReceiver() { // also, we have to add it to the man
         val id_update = p1.getIntExtra("notification_id", -1)
         if(id_update!=-1){
             if(id_update==111)
-                name = p1.getStringExtra("name")
-                amount = p1.getStringExtra("amt")
-                date = p1.getStringExtra("day")
                 builder.setContentText("Pay your $name bill of $amount due on $date")
         }
 

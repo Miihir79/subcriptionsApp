@@ -6,6 +6,7 @@ import android.app.DatePickerDialog
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.DatePicker
 import android.widget.TextView
@@ -118,14 +119,14 @@ public class EditActivity : AppCompatActivity() {
     private fun updateReminder(requestCode: Int, name: String, amt: String, day: String){
         alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
         val intent = Intent(this,AlarmReciever::class.java)
-        intent.putExtra("notification_id", 111)
+        intent.putExtra("requestCode", 111)
         intent.putExtra("name", name)
         intent.putExtra("amt", amt)
-        intent.putExtra("day", day)
+        intent.putExtra("date", day) // the error was here
+        // Log.i("TAG", "updateReminder: $day")
+        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        pendingIntent = PendingIntent.getBroadcast(this,requestCode,intent, PendingIntent.FLAG_CANCEL_CURRENT)
-
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 60000,pendingIntent)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 600,pendingIntent)
     }
 
     private fun updateDateInView() {

@@ -7,24 +7,24 @@
 ## Screenshots of the app
 ### Main Activty
 
-<img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141414_subcriptionsApp%5B1%5D.jpg" width="300"> 
+<img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141414_subcriptionsApp%5B1%5D.jpg" width="250"> 
 
 ### Add New Subcription 
 <table>
   <tr>
-    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141305_subcriptionsApp%5B1%5D.jpg" width="300"> 
-    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141313_subcriptionsApp%5B1%5D.jpg" width="300">
+    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141305_subcriptionsApp%5B1%5D.jpg" width="250"> 
+    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141313_subcriptionsApp%5B1%5D.jpg" width="250">
  </table>
 
 ### Notification
 <table>
   <tr>
-    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141511_subcriptionsApp%5B1%5D.jpg" width="300"> 
-    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141519_subcriptionsApp%5B1%5D.jpg" width="300"> 
+    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141511_subcriptionsApp%5B1%5D.jpg" width="250"> 
+    <td><img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141519_subcriptionsApp%5B1%5D.jpg" width="250"> 
 </table>
   
 ### Update Subscription Details
-<img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141434_subcriptionsApp%5B1%5D.jpg" width="300"> 
+<img src="https://github.com/Miihir79/subcriptionsApp/blob/master/Screenshot_20211205-141434_subcriptionsApp%5B1%5D.jpg" width="250"> 
 
 ## Authors
 <a href="https://github.com/shreyadenny">***Shreya***</a> <br>

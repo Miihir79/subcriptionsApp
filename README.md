@@ -3,6 +3,7 @@
 - App to track different OTT subscriptions taken by users
 - Notifies the users to pay their bills
 - Used various classes from Android Jetpack 
+- Uses Room db to store the subscriptions details
 
 ## Screenshots of the app
 ### Main Activty
